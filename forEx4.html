@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEx4</title>
+</head>
+<body>
+  <script>
+    let result = '';
+    for ( let i = 2; i<=9; i++){
+        for( let k = 1; k <=9; k++){
+          result += `<h2>${i} * ${k} = ${i * k}</h2>`
+        }
+    }
+
+    document.body.innerHTML = result;
+
+  </script>
+</body>
+</html>

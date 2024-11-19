@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switchEx2</title>
+</head>
+<body>
+  <h1>switchex2</h1>
+  <script>
+   const num = prompt('1~4사이의 숫자를 입력해주세요');
+    let pic ='';
+    switch (num) {
+      case null:
+       pic = `<h2>취소 되었습니다</h2>`
+        break;
+      case '1':
+      case '2':
+      case '3':
+      case '4':
+        pic = `<img src="./food${num}.jpg" alt="img${num}">`;
+        
+        break;
+      
+    
+      default:
+        pic= `<h2>해당 번호만</h2>`;
+        break;
+    }
+    document.body.innerHTML += pic;
+  </script>
+</body>
+</html>

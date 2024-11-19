@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중첩switch문Ex</title>
+</head>
+<body>
+  <script>
+    const defaultId = 'web';
+    const defaultPw = 1234;
+
+    let userId = prompt('아이디를 입력하세요');
+
+    switch (userId === defaultId) {
+      case true:
+        alert('아이디가 일치합니다.');
+      let userPw = prompt('비밀번호를 입력하세요');
+      userPw = Number(userPw);
+      switch (userPw) {
+        case defaultPw:
+          alert('로그인되었습니다');
+          break;
+      
+        default:
+          alert('비밀번호가 일치하지 않습니다.');
+          break;
+      }
+       break;
+      default:
+        alert('아이디가 일치하지 않습니다');
+        break;
+    }
+  </script>
+</body>
+</html>

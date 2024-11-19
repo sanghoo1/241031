@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수scope</title>
+</head>
+<body>
+  <h1>변수scope</h1>
+  <ul>
+    <li>function level scope : 함수 내에서만 유효한 범위. var</li>
+    <li>block level scope : {}안에서만 유효한 범위. function, if, for, switch문등, let </li>
+  </ul>
+  <script>
+    //전역 변수 선언
+    var x = 100, y = 200, z = 300;
+
+    //함수 선언
+    function num() {
+      var x = '지역 변수';
+      y = '전역 변수'; // var 키워드 생략시 전역 변수로 인식
+
+      console.log(`함수 내의 x: ${x}, y: ${y}, z:${z} `); // x:지역변수 y:전역변수 z:300
+    }
+    console.log(`함수 호출 전의 x: ${x}, y: ${y}, z:${z} `); // x:100 y:200 z:300 당연히 전역 변수 선언된 값이 출력
+    num();//함수 호출
+    console.log(`함수 호출 후의 x: ${x}, y: ${y}, z:${z} `);// x:100 y:전역변수 z:300 함수에서 y 전역변수를 다시 선언한 값이 나왔고 var x의 지역변수는 함수 안에서만 작동되는 것이여서 전역변수 100이 나옴
+
+    var a = 100;
+    {
+      var a = 200;
+    }
+    console.log(a); // 200 var 변수는 함수 범위만 익식하기 때문에 블록 문의 범위를 인식하지 못함. 블록이 없다라고 생각해서 재선언 값으로 인식.
+
+    console.log(`-- block level scope -- `);
+    let b = 200, c = 300;
+    {
+      let b = '지역 변수'; // 다른 영역이라서 재할당이 아니라 그냥 지역 변수 선언임.
+      c = 500; // 키워드 생략시 전역 변수 var
+      console.log(`{}안에 b는 ${b}`); // let b = 지역변수는 블록 밖으로 못나온다. 다른영역이다.
+    }
+    console.log(`{}밖에 b는 ${b}`);
+    console.log(`{}밖에 c는 ${c}`);
+    var i = 10;
+    var i =20;//같은 이름으로 재선언 가능
+    // let k =10;
+    let k = 20; // 같은 이름으로 재선언 불가능
+    k = 30; // 재할당만 가능
+    {
+      let k =40; // 전역 변수 k와 다른 영역에 존재하므로
+    }
+  </script>
+</body>
+</html>
